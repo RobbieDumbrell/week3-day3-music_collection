@@ -9,8 +9,8 @@ green_day = Artist.new({
   'name' => 'Green Day'
   })
 
-eminem.save()
-green_day.save()
+# eminem.save()
+# green_day.save()
 
 curtain_call_album = Album.new({
     'title' => 'Curtain Call',
@@ -30,11 +30,19 @@ century_breakdown_album = Album.new({
     'artist_id' => green_day.id
     })
 
+# curtain_call_album.save()
+# american_idiot_album.save()
+# century_breakdown_album.save()
 
+# eminem.name = 'Marshall Mathers'
+# eminem.update()
 
-curtain_call_album.save()
-american_idiot_album.save()
-century_breakdown_album.save()
+# eminem.delete()
+
+# curtain_call_album.genre = 'Hip Hop'
+# curtain_call_album.update()
+
+# century_breakdown_album.delete()
 
 # p Artist.list_all
 
@@ -42,4 +50,8 @@ century_breakdown_album.save()
 
 # p green_day.albums
 
-p curtain_call_album.artist
+# p curtain_call_album.artist
+
+p Artist.find_by_id(1)
+
+p Album.find_by_id(1)

@@ -17,7 +17,7 @@ class Artist
     @id = result[0]['id'].to_i
   end
 
-  def self.list_all
+  def self.list_all()
     sql = "SELECT * FROM artists;"
     results = SqlRunner.run(sql)
     return artists = results.map{ |artist_hash| Artist.new(artist_hash) }
@@ -28,6 +28,26 @@ class Artist
     values = [@id]
     albums = SqlRunner.run(sql, values)
     return albums.map { |albums_hash| Album.new(albums_hash) }
+  end
+
+  def update()
+    sql = "UPDATE artists SET name = $1 WHERE id = $2;"
+    values = [@name, @id]
+    SqlRunner.run(sql, values)
+  end
+
+  def delete()
+    sql = "DELETE FROM artists WHERE id = $1;"
+    values = [@id]
+    SqlRunner.run(sql, values)
+  end
+
+  def self.find_by_id(id)
+    sql = "SELECT * FROM artists WHERE id = $1;"
+    values = [id]
+    result = SqlRunner.run(sql, values)
+    artist_hash = result.first
+    return Artist.new(artist_hash)
   end
 
 end
