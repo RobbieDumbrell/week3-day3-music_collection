@@ -52,6 +52,6 @@ century_breakdown_album = Album.new({
 
 # p curtain_call_album.artist
 
-p Artist.find_by_id(1)
-
-p Album.find_by_id(1)
+# p Artist.find_by_id(1)
+#
+# p Album.find_by_id(1)
